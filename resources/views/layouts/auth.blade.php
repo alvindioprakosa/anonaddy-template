@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="{{ app()->getLocale() }}">
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -21,7 +22,9 @@
     <link href="{{ mix('css/app.css') }}" rel="stylesheet">
     @yield('webauthn')
 </head>
+
 <body class="bg-grey-50 antialiased text-grey-900">
     @yield('content')
 </body>
+
 </html>
