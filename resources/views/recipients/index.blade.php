@@ -1,12 +1,22 @@
 @extends('layouts.app')
+
 @section('breadcrumb')
 @endsection
+
 @section('content')
     <div class="container py-8">
         @include('shared.status')
 
-        <recipients :user="{{ json_encode($user) }}" :initial-recipients="{{ json_encode($recipients) }}"
-            :aliases-using-default="{{ json_encode($aliasesUsingDefault) }}"
-            :aliases-using-default-count="{{ $aliasesUsingDefaultCount }}" domain="{{ config('anonaddy.domain') }}" />
+        @php
+            $anonaddyDomain = config('anonaddy.domain');
+        @endphp
+
+        <recipients 
+            :user='@json($user)'
+            :initial-recipients='@json($recipients)'
+            :aliases-using-default='@json($aliasesUsingDefault)'
+            :aliases-using-default-count="{{ $aliasesUsingDefaultCount }}"
+            domain="{{ $anonaddyDomain }}"
+        />
     </div>
 @endsection
